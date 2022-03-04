@@ -1,6 +1,6 @@
 // Importing fs package
 
-const fs = require('fs');
+const fs = require("fs");
 
 // reading a file
 //fs.readFile() : it is a asynchronous function, so the program won't be stopped until the file is read, the next line run after the call
@@ -13,7 +13,6 @@ const fs = require('fs');
 });
 */
 //console.log("the line next to readfile")
-
 
 // WriteFile :  asynchronous
 
@@ -28,7 +27,6 @@ console.log("File Written")
 // directories
 
 // check whether the folder is exit or not
-
 
 /*
 if(!fs.existsSync('./assets')){
@@ -60,9 +58,9 @@ console.log("folder deleted")
 
 */
 
-
 // delete files
 
+/*
 if(fs.existsSync('./docs/deleteme.txt')){
   fs.unlink('./docs/deleteme.txt',(err)=>{
   if(err){
@@ -79,5 +77,4 @@ console.log('file not exists')
 }
 
 
-
-
+*/
