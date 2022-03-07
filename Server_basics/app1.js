@@ -4,6 +4,13 @@ const express = require('express');
 
 const app = express();
 
+// setting up the view engine
+
+app.set('view engine','ejs') // this set the view engine to ejs
+
+// app.set('views','htmlFiles') // by default the express will look for view templates in views folder to set to an some other folder this code is used.
+
+
 // setting it to listen in port 3000
 
 app.listen(3000);
