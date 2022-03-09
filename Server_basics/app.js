@@ -1,5 +1,5 @@
 const express = require('express');
-
+const morgan = require('morgan')
 // express app
 
 const app = express();
@@ -10,6 +10,29 @@ app.set('view engine','ejs') // this set the view engine to ejs
 // setting it to listen in port 3000
 
 app.listen(3000);
+
+
+// Middle wares can be setup anywhere in the server logic. Inm express app.use() function is a middle which able to handle the 404 error page. If a middle ware is placed after a request handles like for page, if the response is completed the middle ware next to the response handler won't be executed
+// app.use((req,res,next)=>{
+//     console.log("Hi there a request has been made");
+//     next() // if a middle ware is executed, express won't go to the next function automatically, we have to tell the express to move by simply calling the next function which passed as a parameter to the use function.
+// })
+
+// There are n number external middle wares available for unique purposes
+
+// Morgan is a middle ware used for logging purposes
+
+app.use(morgan('dev')) // this log the request details in the console based on the parameter passed. like "GET / 304 49.834 ms - -" 
+
+
+
+// setting up the static files.
+
+ app.use(express.static('public'))
+
+
+
+
 
 //setting routing
 app.get('/',(req,res)=>{
