@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head.ejs') %> 
-<body>
-    <%- include('./partials/nav.ejs') %> 
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
     <main>
-        <div class="content">
-            <h2>All blogs</h2>
+      <div class="content">
+        <div class="all-blogs title">
+          <h2>All blogs</h2>
         </div>
+
+        <div class="blogs">
+          <% if(blogs.length >0 ){ %>
+            <%  blogs.map(blog =>{ %>
+          <div class="blog">
+              <a class="link" href=<%= '/blogs/'+blog._id %> ><h3><%= blog.title %> </h3> </a>
+              <p><%= blog.snippet %> </p>
+          </div>
+          <% }) %>
+        <% }else{%>
+            <p>No blogs available right now !!</p>
+            <% } %> 
+        </div>
+      </div>
     </main>
-    <%- include('./partials/footer.ejs') %> 
-</body>
-
-
+    
+  </body>
+  <%- include('./partials/footer.ejs') %>
 </html>
