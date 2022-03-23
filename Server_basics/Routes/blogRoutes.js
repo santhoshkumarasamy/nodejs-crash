@@ -8,7 +8,7 @@ const {
 const express = require("express");
 const router = express.Router();
 
-router.get("/blogs", (req, res) => {
+router.get("/", (req, res) => {
   allBlogs()
     .then((blogs) => {
       res.render("index", { title: "Home", blogs: blogs });
@@ -19,12 +19,12 @@ router.get("/blogs", (req, res) => {
     });
 });
 
-router.get("/blogs/create", (req, res) => {
+router.get("/create", (req, res) => {
   res.render("create", { title: "Create" });
 });
 
 
-router.get("/blogs/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   getBlog(req.params.id)
     .then((blog) => {
       res.render("blog", { title: "Blog", blog: blog });
@@ -37,7 +37,7 @@ router.get("/blogs/:id", (req, res) => {
 
 
 
-router.post("/blogs", (req, res) => {
+router.post("/", (req, res) => {
   var blog = req.body;
   newBlog(blog)
     .then((result) => {
@@ -49,7 +49,7 @@ router.post("/blogs", (req, res) => {
     });
 });
 
-router.delete("/blogs/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   var id = req.params.id;
   deleteBlog(id)
     .then((result) => {
