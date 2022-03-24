@@ -16,16 +16,18 @@ const app = express()
 
 app.set("view engine","ejs")
 
-
+//middle ware
 app.use(morgan('tiny'))
 app.use(express.static('public'))
-app.use(express.urlencoded({extended:true}))
+// app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 
 mongoose.connect(dbURL)
 .then((result)=>{
     app.listen(3000)
+    console.log("Server Started")
 })
-.catch(err=>console.log(err))
+.catch(err=>console.log("Database connection error" + err))
 
 app.get('/',(req,res,next)=>{
     res.render('index',{title:"Home"})
