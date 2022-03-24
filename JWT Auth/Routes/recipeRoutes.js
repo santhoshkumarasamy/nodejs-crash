@@ -1,9 +1,7 @@
 const express = require("express");
-
+const {allRecipe} = require('../Controllers/recipeHandler')
 const router = express.Router()
 
-router.get('/',(req,res,next)=>{
-    res.render('recipes',{title:"All Recipes"})
-})
+router.get('/',allRecipe)
 
 module.exports=router;
