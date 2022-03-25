@@ -4,6 +4,13 @@ const { createUser } = require("../server/dbActions");
 
 const handleError=(err)=>{
     let errors ={name:"",email:"",password:""}
+    console.log(err.message,err.code)
+
+    //duplicate validation
+    if(err.code === 11000){
+      errors.email ="Email already exist"
+    }
+
     //validation errors
     if(err.message.includes("user validation failed")){
         Object.values(err.errors).forEach(({properties})=>{
