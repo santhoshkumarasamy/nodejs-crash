@@ -1,4 +1,4 @@
-// Global Objecys
+// Global Objects
 
 //console.log(global)
 
