@@ -1,0 +1,81 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.actions{
+    display: flex;
+    align-items: center;
+}
+.signUpBody {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.signUpBody h2 {
+  margin: 0;
+  align-self: center;
+}
+.signUpBody form {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 300px;
+  justify-content: space-around;
+  padding: 20px;
+  border: #dbdbdb 1px solid;
+  box-shadow: 0px 0px 10px #888888;
+  border-radius: 5px;
+  font-family: 'Courgette', cursive !important;
+}
+.inputLabel {
+  align-self: flex-start;
+}
+.inputField {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  margin: 0px 30px;
+  height: 35px;
+  outline: none;
+  font-size: 15px;
+}
+#form p{
+    text-align: center;
+}
+.button {
+  width: 100px;
+  margin: 0 auto;
+  height: 30px;
+  border: 1px;
+  cursor: pointer;
+  font-family: 'Courgette', cursive !important;
+  background: none;
+}
+.submitBtn {
+    font-size: 17px;
+    color: #f59e15;
+    text-align: center;
+    font-weight: 700;
+    background: black;
+    width: 160px;
+    height: 35px;
+}
+footer p {
+  text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .signUpBody form {
+    width: 80vw;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .signUpBody form {
+    width: 400px;
+  }
+}
+/* @media only screen and (min-width: 1200px) {
+    .signUpBody form {
+      width: 40vw;
+    }
+  } */

@@ -1,13 +1,43 @@
-<%- include('./Partials/head.ejs') %>
+<%- include('./Partials/head.ejs') %> <%- include('./Partials/nav.ejs') %>
 <body>
-  <form>
-    <label for="Name">Name:</label>
-    <input type="text" id="name" name="name"  />
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email"  />
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password"  />
-    <input type="submit" value="Submit" />
-  </form>
+  <div class="signUpBody">
+    <!-- <h2>Login</h2> -->
+    <form id="form">
+      <h2>Sign Up</h2>
+      <!-- <label class="inputLabel" for="Name">Name:</label> -->
+      <input class="inputField" type="text" id="name" name="name" placeholder="Name" />
+      <!-- <label class="inputLabel" for="email">Email:</label> -->
+      <input class="inputField" type="email" id="email" name="email" placeholder="Email Address" />
+      <!-- <label class="inputLabel" for="password">Password:</label> -->
+      <input class="inputField" type="password" id="password" name="password" placeholder="Password"/>
+      <p>Already a member ? <a href="/auth/login"><b>Login</b></a></p>
+      <input class="button submitBtn" type="submit" value="Submit" />
+    </form>
+  </div>
 </body>
+
+<script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = form.email.value;
+    const name = form.name.value;
+    const password = form.password.value;
+    // sending request
+
+    try {
+      const res = await fetch("/auth/signup", {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+          name: name,
+          password: password,
+        }),
+        headers: { "Content-type": "application/json" },
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  });
+</script>
 <%- include('./Partials/footer.ejs') %>
